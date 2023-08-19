@@ -10,7 +10,6 @@ import 'package:valu_store_app/features/domain/use_cases/get_products.dart';
 import 'package:valu_store_app/features/presentation/bloc/bloc.dart';
 
 import 'core/network/network_info.dart';
-import 'core/util/input_converter.dart';
 
 final sl = GetIt.instance;
 
@@ -20,7 +19,6 @@ Future<void> init() async {
   sl.registerFactory(
     () => ProductsBloc(
       products: sl(),
-      inputConverter: sl(),
     ),
   );
 
@@ -46,7 +44,6 @@ Future<void> init() async {
   );
 
   //! Core
-  sl.registerLazySingleton(() => InputConverter());
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
 
   //! External

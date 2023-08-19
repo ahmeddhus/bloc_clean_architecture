@@ -4,7 +4,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:valu_store_app/core/error/failures.dart';
 import 'package:valu_store_app/core/usecases/usecase.dart';
-import 'package:valu_store_app/core/util/input_converter.dart';
 import 'package:valu_store_app/features/domain/entities/product.dart';
 import 'package:valu_store_app/features/domain/use_cases/get_products.dart';
 import 'package:valu_store_app/features/presentation/bloc/bloc.dart';
@@ -16,11 +15,9 @@ const String INVALID_INPUT_FAILURE_MESSAGE =
 
 class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
   final GetProducts getProducts;
-  final InputConverter inputConverter;
 
   ProductsBloc({
     required GetProducts products,
-    required this.inputConverter,
   })  : getProducts = products,
         super(Empty()) {
     on<ProductsEvent>(_mapGetProductsEventToState);
@@ -34,14 +31,13 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
     }
   }
 
-  Stream<ProductsState> _eitherLoadedOrErrorState(
+  ProductsState _eitherLoadedOrErrorState(
     Either<Failure, List<Product>> failureOrProducts,
-  ) async* {
-    yield failureOrProducts.fold(
-      (failure) => Error(message: _mapFailureToMessage(failure)),
-      (product) => Loaded(products: product),
-    );
-  }
+  ) =>
+      failureOrProducts.fold(
+        (failure) => Error(message: _mapFailureToMessage(failure)),
+        (product) => Loaded(products: product),
+      );
 
   String _mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {
