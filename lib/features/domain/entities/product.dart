@@ -1,5 +1,5 @@
-import 'package:valu_store_app/domain/entities/rating.dart';
-import 'package:valu_store_app/utils/from_map.dart';
+import 'package:valu_store_app/core/util/from_map.dart';
+import 'package:valu_store_app/features/domain/entities/rating.dart';
 
 class Product {
   final int? id;
