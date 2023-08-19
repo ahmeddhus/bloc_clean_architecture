@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:valu_store_app/features/domain/entities/product.dart';
+import 'package:valu_store_app/features/presentation/widgets/app_image.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
@@ -19,12 +20,7 @@ class ProductItem extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Image.network(
-                  product.image ?? '',
-                  errorBuilder: (_, __, ___) {
-                    return const Icon(Icons.error);
-                  },
-                ),
+                child: AppImage(imageUrl: product.image),
               ),
             ),
             Expanded(
