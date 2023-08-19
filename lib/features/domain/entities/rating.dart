@@ -19,4 +19,9 @@ class Rating extends ParentModel {
       count: converter.convertToInt(key: "count"),
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'rate': rate,
+        'count': count,
+      };
 }
