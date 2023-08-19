@@ -53,4 +53,13 @@ class FromMap {
     final T t = modelInstance as T;
     return jsonData is Map<String, dynamic> ? t.fromJsonInstance(jsonData) : null;
   }
+
+  List<T> convertToObjectsList<T extends ParentModel>({dynamic jsonData, dynamic modelInstance}) {
+    final T t = modelInstance as T;
+    return jsonData is List<dynamic>
+        ? List<T>.from(jsonData.map((dynamic x) {
+            return t.fromJsonInstance(x as Map<String, dynamic>);
+          }))
+        : <T>[];
+  }
 }

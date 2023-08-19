@@ -34,6 +34,22 @@ class ProductModel extends Product {
     );
   }
 
+  static List<ProductModel> toList(dynamic jsonData) {
+    return jsonData is List<dynamic>
+        ? List<ProductModel>.from(jsonData.map((dynamic x) {
+            return ProductModel.fromMap(x as Map<String, dynamic>);
+          }))
+        : <ProductModel>[];
+  }
+
+  static List<ProductModel> listToJson(dynamic jsonData) {
+    return jsonData is List<dynamic>
+        ? List<ProductModel>.from(jsonData.map((dynamic x) {
+            return ProductModel.fromMap(x as Map<String, dynamic>);
+          }))
+        : <ProductModel>[];
+  }
+
   Map<String, dynamic> toJson() => {
         'id': id,
         'title': title,
