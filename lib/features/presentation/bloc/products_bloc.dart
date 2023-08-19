@@ -21,6 +21,7 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
   })  : getProducts = products,
         super(Empty()) {
     on<ProductsEvent>(_mapGetProductsEventToState);
+    add(GetProductsEvent());
   }
 
   Future<void> _mapGetProductsEventToState(event, emit) async {
