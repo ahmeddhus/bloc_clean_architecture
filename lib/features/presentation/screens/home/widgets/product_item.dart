@@ -12,6 +12,7 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    final ThemeData theme = Theme.of(context);
     return InkWell(
       onTap: () => context.go(
         RouteNames.productDetailsScreen,
@@ -21,7 +22,7 @@ class ProductItem extends StatelessWidget {
         width: size.width,
         height: size.width / 3,
         child: Card(
-          surfaceTintColor: Colors.white,
+          color: Theme.of(context).colorScheme.primary,
           child: Row(
             children: [
               Expanded(
@@ -41,9 +42,7 @@ class ProductItem extends StatelessWidget {
                       Flexible(
                         child: Text(
                           product.title ?? '',
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: theme.textTheme.titleSmall,
                           textAlign: TextAlign.start,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,

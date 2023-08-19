@@ -9,13 +9,13 @@ class ProductDetailsHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Column(
       children: [
         SizedBox(
           height: MediaQuery.of(context).size.height / 3,
-          child: AppImage(
-            imageUrl: product?.image,
-          ),
+          child: AppImage(imageUrl: product?.image),
         ),
         Padding(
           padding: const EdgeInsets.all(10.0),
@@ -32,9 +32,7 @@ class ProductDetailsHeader extends StatelessWidget {
               ),
               Text(
                 '${product?.price} \$',
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: theme.textTheme.titleSmall,
               ),
             ],
           ),

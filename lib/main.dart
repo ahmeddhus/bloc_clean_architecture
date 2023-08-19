@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:valu_store_app/core/routing/router.dart';
+import 'package:valu_store_app/core/theme/app_theme.dart';
 import 'package:valu_store_app/features/presentation/bloc/bloc.dart';
 
 import 'injection_container.dart' as di;
@@ -21,10 +22,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
         title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        theme: AppTheme.appTheme,
       ),
     );
   }

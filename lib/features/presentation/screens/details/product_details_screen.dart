@@ -9,6 +9,7 @@ class ProductDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -21,13 +22,14 @@ class ProductDetailsScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 20.0),
                 child: Text(
                   product?.title ?? '',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
+                  style: theme.textTheme.titleLarge,
                 ),
               ),
-              SafeArea(child: Text(product?.description ?? '')),
+              SafeArea(
+                  child: Text(
+                product?.description ?? '',
+                style: theme.textTheme.bodyMedium,
+              )),
             ],
           ),
         ),
