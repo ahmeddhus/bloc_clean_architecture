@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:valu_store_app/features/domain/entities/product.dart';
 import 'package:valu_store_app/features/presentation/bloc/bloc.dart';
-import 'package:valu_store_app/features/presentation/widgets/loading_widget.dart';
+import 'package:valu_store_app/features/presentation/screens/home/widgets/product_item.dart';
+import 'package:valu_store_app/features/presentation/screens/home/widgets/product_shimmer.dart';
 import 'package:valu_store_app/features/presentation/widgets/message_display.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
                   message: 'Empty!',
                 );
               } else if (state is Loading) {
-                return const LoadingWidget();
+                return const ProductShimmer();
               } else if (state is Loaded) {
                 return SafeArea(
                   child: ListView.separated(
@@ -32,20 +32,17 @@ class HomeScreen extends StatelessWidget {
                     physics: const AlwaysScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
-                      final Product product = state.products[index];
-                      return Text('${product.id}: ${product.title}');
+                      return ProductItem(product: state.products[index]);
                     },
                     separatorBuilder: (BuildContext context, int index) {
-                      return const SizedBox(height: 30);
+                      return const SizedBox(height: 8);
                     },
                   ),
                 );
               } else if (state is Error) {
-                return MessageDisplay(
-                  message: state.message,
-                );
+                return MessageDisplay(message: state.message);
               } else {
-                return const Center(child: Text('Error'));
+                return const Center(child: Text('unexpected error has occurred!'));
               }
             },
           ),

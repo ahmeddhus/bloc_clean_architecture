@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:valu_store_app/features/presentation/bloc/bloc.dart';
-import 'package:valu_store_app/features/presentation/screens/home_screen.dart';
+import 'package:valu_store_app/features/presentation/screens/home/home_screen.dart';
 
 import 'injection_container.dart' as di;
 
