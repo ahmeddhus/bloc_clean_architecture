@@ -21,6 +21,9 @@ class ProductItem extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Image.network(
                   product.image ?? '',
+                  errorBuilder: (_, __, ___) {
+                    return const Icon(Icons.error);
+                  },
                 ),
               ),
             ),
