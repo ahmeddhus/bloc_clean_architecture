@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:valu_store_app/core/routing/router.dart';
 import 'package:valu_store_app/features/presentation/bloc/bloc.dart';
-import 'package:valu_store_app/features/presentation/screens/home/home_screen.dart';
 
 import 'injection_container.dart' as di;
 
@@ -16,15 +16,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: BlocProvider(
-        create: (_) => di.sl<ProductsBloc>(),
-        child: const HomeScreen(),
+    return BlocProvider(
+      create: (_) => di.sl<ProductsBloc>(),
+      child: MaterialApp.router(
+        routerConfig: AppRouter.router,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
       ),
     );
   }
