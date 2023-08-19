@@ -16,10 +16,10 @@ abstract class ProductsLocalDataSource {
 
 const CACHED_PRODUCTS = 'CACHED_PRODUCTS';
 
-class NumberTriviaLocalDataSourceImpl implements ProductsLocalDataSource {
+class ProductsLocalDataSourceImpl implements ProductsLocalDataSource {
   final SharedPreferences sharedPreferences;
 
-  NumberTriviaLocalDataSourceImpl({required this.sharedPreferences});
+  ProductsLocalDataSourceImpl({required this.sharedPreferences});
 
   @override
   Future<List<ProductModel>> getLastProducts() {

@@ -22,12 +22,12 @@ class ProductsRepositoryImpl implements ProductsRepository {
 
   @override
   Future<Either<Failure, List<ProductModel>>> getProducts() async {
-    return await _getTrivia(() {
+    return await _getProducts(() {
       return remoteDataSource.getProducts();
     });
   }
 
-  Future<Either<Failure, List<ProductModel>>> _getTrivia(
+  Future<Either<Failure, List<ProductModel>>> _getProducts(
     _ConcreteOrRandomChooser getConcreteOrRandom,
   ) async {
     if (await networkInfo.isConnected) {
