@@ -1,4 +1,4 @@
-import 'package:valu_store_app/domain/entities/parent_model.dart';
+import 'package:valu_store_app/features/domain/entities/parent_model.dart';
 
 class FromMap {
   final Map<String, dynamic> map;

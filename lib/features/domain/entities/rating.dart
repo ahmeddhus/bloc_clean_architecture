@@ -1,5 +1,5 @@
-import 'package:valu_store_app/domain/entities/parent_model.dart';
-import 'package:valu_store_app/utils/from_map.dart';
+import 'package:valu_store_app/core/util/from_map.dart';
+import 'package:valu_store_app/features/domain/entities/parent_model.dart';
 
 class Rating extends ParentModel {
   final double? rate;
