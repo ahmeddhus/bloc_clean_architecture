@@ -14,4 +14,9 @@ A demo store app built with love and Flutter, where I tried to apply clean archi
 - [shared preferences](https://pub.dev/packages/shared_preferences)
 - [Shimmer](https://pub.dev/packages/shimmer)
 
+Inspired by: [Flutter TDD Clean Architecture Course](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure/)
+
+Watch this [Flutter Clean Architecture Visual Explanation](https://www.youtube.com/watch?v=DsvFOnemzsQ&ab_channel=FlutterMapp) video for more clarification about the layers.
+
+
 
